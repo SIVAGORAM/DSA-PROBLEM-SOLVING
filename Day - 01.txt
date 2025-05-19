@@ -1,0 +1,1167 @@
+/*  1:-
+
+    🌟 Question:
+    Write a C++ program to add two numbers and display the result.
+    The numbers can be declared inside the program.
+
+    📝 Example:
+    Input: a = 2, b = 3
+    Output: 5
+*/
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    int a = 2;  // First number
+    int b = 3;  // Second number
+
+    cout << a + b << endl;  // Print the sum of a and b
+
+    return 0;  // Indicate successful program completion
+}
+
+
+
+/* 2:- 
+
+    🌟 Question:
+    Write a C++ program to multiply two numbers and display the result.
+    The numbers can be declared inside the program.
+
+    📝 Example:
+    Input: a = 23, b = 3  
+    Output: 69
+*/
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    int a = 23;   // First number
+    int b = 3;    // Second number
+    int c;        // Variable to store the result
+
+    c = a * b;    // Multiply a and b
+    cout << c << endl;  // Display the result
+
+    return 0;     // End of program
+}
+
+
+/*   3:-
+
+    🌟 Question:
+    Write a C++ program to calculate the average of 3 numbers.
+    Display both the integer average and the float average.
+
+    📝 Example:
+    Input: a = 5, b = 6, c = 9  
+    Integer Average Output: 6  
+    Float Average Output: 6.66667
+*/
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    int a = 5;    // First number
+    int b = 6;    // Second number
+    int c = 9;    // Third number
+
+    int d;        // To store integer average
+    float e;      // To store float average
+
+    d = (a + b + c) / 3;       // Integer division
+    e = (a + b + c) / 3.0;     // Float division
+
+    cout << "Integer Average: " << d << endl;
+    cout << "Float Average: " << e << endl;
+
+    return 0;
+}
+
+
+
+
+/*  4:- 
+
+    🌟 Question:
+    You are given the length and width of a rectangle.
+
+    ✅ Task:
+    Calculate and print the area of the rectangle.
+
+    📐 Formula:
+    Area = Length × Width
+
+    📝 Example:
+    Input: Length = 10, Width = 20  
+    Output: 200
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    float length, width, area;
+
+    // Input length and width from the user
+    cout << "Enter the length of the rectangle: ";
+    cin >> length;
+
+    cout << "Enter the width of the rectangle: ";
+    cin >> width;
+
+    // Calculate area
+    area = length * width;
+
+    // Output the result
+    cout << "The area of the rectangle is: " << area << endl;
+
+    return 0;
+}
+
+
+/*  5:-
+
+   🌟 Question:
+   Convert Celsius to Fahrenheit
+   Statement:
+   Given a temperature in Celsius, convert it to Fahrenheit.
+   Formula:
+   Fahrenheit = (Celsius * 9/5) + 32
+*/
+
+#include <iostream>
+#include <iomanip> // For setting decimal precision
+
+using namespace std;
+
+int main() {
+    cout << "Enter temperature in Celsius: ";
+    float celsius;
+    cin >> celsius;
+
+    float fahrenheit = (celsius * 9.0 / 5.0) + 32;
+
+    cout << fixed << setprecision(2);
+    cout << "Temperature in Fahrenheit: " << fahrenheit << endl;
+
+    return 0;
+}
+
+
+
+/*   6:-
+
+    🌟 Question:
+    Convert a lowercase letter to uppercase letter by taking input from the user.
+
+    📝 Examples:
+    Input: a
+    Output: A
+
+    Input: k
+    Output: K
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+
+    cout << "Enter a lowercase letter: ";
+    cin >> ch;
+
+    // Convert lowercase to uppercase by subtracting 32 (ASCII)
+    ch = ch - 32;
+
+    cout << "Uppercase letter: " << ch << endl;
+
+    return 0;
+}
+
+
+/*   7:-
+
+    🌟 Question:
+    Convert an uppercase letter to lowercase letter by taking input from the user.
+
+    📝 Examples:
+    Input: A
+    Output: a
+
+    Input: K
+    Output: k
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+
+    cout << "Enter an uppercase letter: ";
+    cin >> ch;
+
+    // Convert uppercase to lowercase by adding 32 (ASCII)
+    ch = ch + 32;
+
+    cout << "Lowercase letter: " << ch << endl;
+
+    return 0;
+}
+
+
+
+
+/*   8:-
+
+    🌟 Question:
+    Write a C++ program to calculate simple interest.
+    Take principal amount, annual interest rate, and time period (years) as input from the user.
+    Calculate and display the interest with 2 decimal places.
+
+    📝 Formula:
+    Interest = (Principal × Rate × Time) / 100
+*/
+
+#include <iostream>
+#include <iomanip>  // For std::fixed and std::setprecision
+using namespace std;
+
+int main() {
+    int Principal = 0;
+    float Rate = 0;
+    int Time = 0;
+    float Interest = 0;
+
+    cout << "Enter the principal amount:" << endl;
+    cin >> Principal;
+
+    cout << "Enter the annual interest rate:" << endl;
+    cin >> Rate;
+
+    cout << "Enter the time period in years:" << endl;
+    cin >> Time;
+
+    Interest = (Principal * Rate * Time) / 100.0;
+
+    cout << fixed << setprecision(2);  // Format output to 2 decimal places
+    cout << "Mia will earn $" << Interest << " in interest" << endl;
+
+    return 0;
+}
+
+
+
+/*   9:-
+
+    🌟 Question:
+    Write a C++ program that takes 3 integers, 2 long integers,
+    and 2 double values as input from the user.
+    Calculate and print the sum of integers, sum of longs,
+    and sum of doubles (with 6 decimal places).
+    
+    📝 Input order:
+    int1 int2 int3 long1 long2 double1 double2
+*/
+
+#include <iostream>
+#include <iomanip>  // For controlling the output format
+using namespace std;
+
+int main() {
+    int int1, int2, int3;
+    long long1, long2;
+    double double1, double2;
+
+    cout << "Enter 3 integers, 2 long integers, and 2 doubles separated by space:" << endl;
+    cin >> int1 >> int2 >> int3 >> long1 >> long2 >> double1 >> double2;
+    
+    int sum_ints = int1 + int2 + int3;
+    long sum_longs = long1 + long2;
+    double sum_doubles = double1 + double2;
+
+    cout << sum_ints << endl;
+    cout << sum_longs << endl;
+    cout << fixed << setprecision(6) << sum_doubles << endl;
+
+    return 0;
+}
+
+
+
+
+/*   10:-
+
+    🌟 Question:
+    Write a C++ program to swap two numbers using three variables.
+    Take two numbers as input from the user and swap their values.
+
+    📝 Example:
+    Input: 5 10
+    Output:
+    Before swapping: a = 5, b = 10
+    After swapping: a = 10, b = 5
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, temp;
+
+    cout << "Enter two numbers (a and b): ";
+    cin >> a >> b;
+
+    cout << "Before swapping: a = " << a << ", b = " << b << endl;
+
+    // Swap using 3rd variable
+    temp = a;
+    a = b;
+    b = temp;
+
+    cout << "After swapping: a = " << a << ", b = " << b << endl;
+
+    return 0;
+}
+
+
+
+/*   11:-
+
+    🌟 Question:
+    Swap two numbers without using a third variable.
+    Take two numbers as input and swap their values.
+
+    📝 Example:
+    Input: 5 10
+    Output:
+    Before swapping: a = 5, b = 10
+    After swapping: a = 10, b = 5
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+
+    cout << "Enter two numbers (a and b): ";
+    cin >> a >> b;
+
+    cout << "Before swapping: a = " << a << ", b = " << b << endl;
+
+    // Swapping without third variable
+    a = a + b;  // a now holds sum of a and b
+    b = a - b;  // b becomes original a
+    a = a - b;  // a becomes original b
+
+    cout << "After swapping: a = " << a << ", b = " << b << endl;
+
+    return 0;
+}
+
+
+/*   12:-
+
+    🌟 Question:
+    Given the total number of candies and the number of cousins,
+    check if the candies can be divided equally among all cousins.
+    
+    Input: 
+    - Total candies (integer)
+    - Number of cousins (integer)
+    
+    Output:
+    - Print "YES" if candies can be divided equally
+    - Print "NO" if they cannot be divided equally
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int noOfCandies, noOfCousins;
+    
+    cout << "Enter total candies and number of cousins: ";
+    cin >> noOfCandies >> noOfCousins;
+    
+    if (noOfCandies % noOfCousins == 0) {
+        cout << "YES" << endl;
+    } else {
+        cout << "NO" << endl;
+    }
+    
+    return 0;
+}
+
+
+/*   13:-
+
+    🌟 Question:
+    Calculate the volume of a cylinder given its radius and height,
+    convert the volume from cubic centimeters to liters,
+    then multiply the result by 40 and display it with 2 decimal places.
+
+    Input:
+    - Radius of the cylinder (float)
+    - Height of the cylinder (float)
+
+    Output:
+    - The calculated value (volume in liters * 40) printed with 2 decimal places.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    float radius, height, pi = 3.14;
+
+    cout << "Enter the radius of the cylinder (in cm): ";
+    cin >> radius;
+
+    cout << "Enter the height of the cylinder (in cm): ";
+    cin >> height;
+
+    float volume = pi * radius * radius * height;  // volume in cubic cm
+    volume = volume / 1000;                        // convert to liters
+
+    cout << "Result (volume in liters * 40): ";
+    cout << fixed << setprecision(2) << (volume * 40) << endl;
+
+    return 0;
+}
+
+
+
+/*  14:-
+
+🌟 Question:
+Check if the given number is Odd or Even
+Statement:
+Given an integer, determine whether it is odd or even.
+*/
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    cout << "Enter a number: ";
+    int num;
+    cin >> num;
+
+    if (num % 2 == 0) {
+        cout << num << " is Even" << endl;
+    } else {
+        cout << num << " is Odd" << endl;
+    }
+
+    return 0;
+}
+
+
+
+/*  15:-
+
+  🌟 Question:
+  Check whether a character is Vowel or Consonant
+  Statement:
+  Given a single alphabet character, determine whether it is a vowel or a consonant.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter a single character: ";
+    char ch;
+    cin >> ch;
+
+    // Convert to lowercase to handle uppercase input as well
+    ch = tolower(ch);
+
+    if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        cout << ch << " is a Vowel" << endl;
+    } else if((ch >= 'a' && ch <= 'z')) {
+        cout << ch << " is a Consonant" << endl;
+    } else {
+        cout << "Invalid input! Please enter an alphabet character." << endl;
+    }
+
+    return 0;
+}
+
+
+/*  16:-
+
+
+🌟 Question:
+Leap Year Checking
+Statement:
+Given a year, determine whether it is a leap year or not.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter a year: ";
+    int year;
+    cin >> year;
+
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+        cout << year << " is a Leap Year" << endl;
+    } else {
+        cout << year << " is NOT a Leap Year" << endl;
+    }
+
+    return 0;
+}
+
+
+
+/*  17:-
+
+
+  🌟 Question:
+  Positive or Negative Number Checking
+  Statement:
+  Given a number, check whether it is positive, negative, or zero.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter a number: ";
+    int num;
+    cin >> num;
+
+    if (num > 0) {
+        cout << num << " is Positive" << endl;
+    } else if (num < 0) {
+        cout << num << " is Negative" << endl;
+    } else {
+        cout << "The number is Zero" << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+/* 18:-
+
+    🌟 Question: Calculator
+
+    Welcome to Calculator
+    a. Addition
+    b. Subtraction
+    c. Multiplication
+    d. Division
+
+    Select any option:
+
+    Enter 2 numbers:
+
+    Output:
+    Result based on the selected operation
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Welcome to Calculator" << endl;
+    cout << "a. Addition" << endl;
+    cout << "b. Subtraction" << endl;
+    cout << "c. Multiplication" << endl;
+    cout << "d. Division" << endl << endl;
+
+    cout << "Select any option: ";
+    char option;
+    cin >> option;
+
+    cout << "Enter 2 Numbers: ";
+    int num1, num2;
+    cin >> num1 >> num2;
+
+    cout << "Selected Option: " << option << "  Numbers are: " << num1 << " and " << num2 << endl;
+
+    if(option == 'a') {
+        cout << "Addition is: " << (num1 + num2) << endl;
+    }
+    else if(option == 'b') {
+        cout << "Subtraction is: " << (num1 - num2) << endl;
+    }
+    else if(option == 'c') {
+        cout << "Multiplication is: " << (num1 * num2) << endl;
+    }
+    else if(option == 'd') {
+        if(num2 != 0) {
+            cout << "Division is: " << (num1 / num2) << endl;
+        } else {
+            cout << "Error: Division by zero is not allowed." << endl;
+        }
+    }
+    else {
+        cout << "Invalid option selected." << endl;
+    }
+
+    return 0;
+}
+
+
+/* 19:-
+
+ 🌟 Question:
+  Minimum of two numbers
+  Statement
+  Given two integers, print the smaller value.
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Enter two integers: ";  // Prompt for input
+
+    int a, b;
+    cin >> a >> b;
+
+    int minimum;
+
+    if(a < b) {
+        minimum = a;
+    } else {
+        minimum = b;
+    }
+
+    cout << "Minimum is: " << minimum << endl;  // Output the smaller value
+    
+    return 0;
+}
+
+
+/* 20:-
+
+  🌟 Question:
+   Sign function
+   Statement
+   For the given integer X print 1 if it's positive, -1 if it's negative,              or 0 if it's equal to zero.
+   Try to use the cascade if-elif-else for it.
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+
+    int a;
+
+    cin>>a;
+
+    if(a>0) {
+        cout<<1<<endl;
+    } else if(a<0) {
+        cout<<"-1"<<endl;
+    } else if(a == 0) {
+        cout<<0<<endl;
+    }
+    
+    return 0;
+}
+
+
+/* 21:-
+
+     🌟 Question:
+      Minimum of three numbers
+      Statement
+      Given three integers, print the smallest value.
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Enter three integers: ";  // Prompt for input
+
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    if(a < b && a < c) {  
+        cout << "Minimum is: " << a << endl;
+    } else if(b < c) {
+        cout << "Minimum is: " << b << endl;
+    } else {
+        cout << "Minimum is: " << c << endl;
+    }
+
+    return 0;
+}
+
+/* 22:-
+
+ 🌟 Question:
+  Equal numbers
+  Statement:
+  Given three integers, determine how many of them are equal to each other. 
+  The program must print one of these numbers: 
+  3 (if all are the same), 
+  2 (if two of them are equal to each other and the third is different) or 
+  0 (if all numbers are different).
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Prompt user to enter three integers
+    cout << "Enter three integers: ";
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    // Check conditions to find how many numbers are equal
+    if (a == b && b == c) {
+        cout << 3 << endl;  // All three are equal
+    }
+    else if (a == b || b == c || c == a) {
+        cout << 2 << endl;  // Exactly two are equal
+    }
+    else {
+        cout << 0 << endl;  // All are different
+    }
+
+    return 0;
+}
+
+
+
+
+// 23:-
+
+
+🌟 Question:
+Find the largest number among the three numbers.
+
+Time take to solve :- 5Mins
+
+Hints to Solve:-
+We have 3 numbers: a, b, and c.
+We want to find which one is the biggest.
+
+👶 Easy Step-by-Step:
+Look at a
+Ask: Is a bigger than both b and c?
+👉 If yes, then a is the largest.
+
+If not, look at b
+Ask: Is b bigger than both a and c?
+👉 If yes, then b is the largest.
+
+If not, then c must be the largest.
+
+Code:-
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+    int a = 10 , b = 40 , c = 50;
+
+    if (a>=b && a>=c){
+        cout << "a is largest" << endl;
+    }
+    else if (b>=a && b>=c){
+        cout << "b is largest" << endl;
+    }
+    else{
+        cout << "c is largest" << endl;
+    }
+}
+
+
+
+
+
+// 24:-
+
+
+🌟 Question:
+Write a Program to check whether a number is prime or not.
+
+Time take to solve :- 5 Mins
+
+Hint to Check if a Number is Prime:
+A number is prime if it is divisible by exactly 2 numbers:
+1 and the number itself.
+
+Steps to Follow:
+Start a counter: count = 0
+
+Loop from 1 to num
+
+For each i, check if num % i == 0
+
+If yes → increase count
+
+After loop:
+
+If count == 2 → it's a prime
+
+Else → not prime
+
+Code:-
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    int count = 0;  
+
+    cout << "Enter a Number: ";
+    cin >> num;
+
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            count++;
+        }
+    }
+
+    if (count == 2) {
+        cout << "It is a Prime Number" << endl;
+    } else {
+        cout << "It is Not a Prime Number" << endl;
+    }
+
+    return 0;
+}
+
+
+
+// 25:- 
+ 
+
+🌟 Question:
+ Write a C++ program to calculate Compound Interest.
+
+Time take to solve :- 8 Mins
+
+Hints to Solve Compound Interest:
+Input Values:
+
+Principal amount (P)
+
+Annual interest rate (R)
+
+Time (T in years)
+
+Calculate Total Amount (A) using the formula:
+
+
+A = P * pow((1 + R/100), T);
+Calculate Compound Interest (CI):
+
+
+CI = A - P;
+Output CI (the amount of interest earned).
+
+💡 Tips:
+Always remember that the rate (R) is divided by 100 to convert percentage to a decimal.
+
+Use floating-point numbers (like float or double) for accurate calculations, especially when dealing with decimals.
+
+For exponentiation, use the pow(base, exponent) function from the <cmath> library.
+
+Code:- 
+
+#include <iostream>
+#include <cmath>  // For the pow() function
+
+using namespace std;
+
+int main() {
+   double principalAmount = 2300;  
+   double annualRate = 7;          
+   int timeInYears = 4;           
+   
+   double totalAmount = principalAmount * pow((1 + annualRate / 100.0), timeInYears);
+   
+   double compoundInterest = totalAmount - principalAmount;
+   
+   cout << "Compound Interest: " << compoundInterest << endl;
+   
+   return 0;
+}
+
+
+
+// 26.
+
+
+🌟 Question:
+ Write a program to Factorial of a Number.
+
+Time taken to solve:- 8mins
+
+Hint:-
+✅ What is Factorial?
+Factorial of a number n is the product of all positive integers from 1 to n.
+
+Mathematically written as:
+n! = n × (n - 1) × (n - 2) × ... × 1
+
+Example:
+5! = 5 × 4 × 3 × 2 × 1 = 120
+
+🧠 Steps to Solve Factorial:
+Take Input:
+Ask the user for a positive integer.
+
+Initialize a variable:
+Set factorial = 1 (because multiplying by 1 doesn't change the result).
+
+Loop through numbers from 1 to n:
+Use a for loop like:
+for (int i = 1; i <= n; i++)
+Multiply factorial = factorial * i in each step.
+
+Handle Edge Cases:
+
+If n == 0, factorial is 1.
+
+If n < 0, factorial is not defined (you can print an error message).
+
+
+Code:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    long long factorial = 1; 
+    cout << "Enter a positive number: ";
+    cin >> num;
+
+    if (num < 0) {
+        cout << "Factorial is not defined for negative numbers." << endl;
+    } else {
+      
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;  
+        }
+        cout << "Factorial of " << num << " is: " << factorial << endl;
+    }
+
+    return 0;
+}
+
+
+
+// 27. 
+
+
+🌟 Question:
+Write a Program to Check if a number is an Armstrong number or not.
+
+
+Time taken :- 20mins
+
+Hint:-
+
+Example Walkthrough:
+Take the number 153:
+
+Number of digits = 3
+
+Extract each digit:
+
+First digit: 153 % 10 = 3, then 153 / 10 = 15
+
+Second digit: 15 % 10 = 5, then 15 / 10 = 1
+
+Third digit: 1 % 10 = 1, then 1 / 10 = 0
+
+Now, raise each digit to the power of 3 (since there are 3 digits):
+
+
+Sum of these powered digits: 
+1+125+27=153
+
+Since 153 is equal to the original number, 153 is an Armstrong number.
+
+
+Code:-
+
+#include <iostream>
+#include <cmath>  // for pow() function
+
+using namespace std;
+
+int main() {
+    int number, sum = 0, temp, digitCount = 0;
+
+    cout << "Enter a number: ";
+    cin >> number;
+
+    // Step 1: Store the original number in a temp variable
+    temp = number;
+
+    // Step 2: Count the number of digits
+    while (temp != 0) {
+        temp = temp / 10;
+        digitCount++;  // Increment count for each digit
+    }
+
+    // Step 3: Reset temp to the original number
+    temp = number;
+
+    // Step 4: Compute sum of each digit raised to the power of digitCount
+    while (temp != 0) {
+        int digit = temp % 10;  // Extract the last digit
+        sum += pow(digit, digitCount);  // Add the powered digit to the sum
+        temp = temp / 10;  // Remove the last digit
+    }
+
+    // Step 5: Check if sum equals the original number
+    if (sum == number) {
+        cout << number << " is an Armstrong number." << endl;
+    } else {
+        cout << number << " is not an Armstrong number." << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+// 28. 
+
+
+🌟 Question:
+Write a Program to reverse a number.
+
+Time taken to solve 15mins
+
+Hint:-
+Initialize: Set reversedNum = 0 to store the reversed number.
+
+Loop through the digits:
+
+While the number is not 0, do the following:
+
+Extract the last digit using remainder = num % 10.
+
+Add this digit to reversedNum after multiplying reversedNum by 10.
+
+Remove the last digit from the number using num = num / 10.
+
+Output: Once the loop finishes, reversedNum will contain the reversed number.
+
+This is the basic logic to reverse a number.
+
+code:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, reversedNum = 0, remainder;
+
+    // Input the number from the user
+    cout << "Enter a number: ";
+    cin >> num;
+
+    // Reverse the number
+    while (num != 0) {
+        remainder = num % 10;  // Get the last digit
+        reversedNum = reversedNum * 10 + remainder;  // Add the digit to the reversed number
+        num /= 10;  // Remove the last digit from the original number
+    }
+
+    // Output the reversed number
+    cout << "Reversed Number: " << reversedNum << endl;
+
+    return 0;
+}
+
+
+// 29. 
+
+
+🌟 Question:
+Check whether a number is a palindrome.
+
+Time taken to Solve:- 10mins
+
+Hint;-
+Store the original number: Save the original number in a variable (e.g., originalNum).
+
+Reverse the number:
+
+Use the same logic as reversing a number:
+
+Extract the last digit using num % 10.
+
+Add the last digit to a new variable (reversedNum), multiplying the existing value of reversedNum by 10 before adding.
+
+Remove the last digit using num = num / 10.
+
+Compare:
+
+After the loop, compare the original number (originalNum) with the reversed number (reversedNum).
+
+If they are equal, the number is a palindrome. If not, it is not a palindrome.
+
+CODE:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, reversedNum = 0, originalNum, remainder;
+
+    // Input the number from the user
+    cout << "Enter a number: ";
+    cin >> num;
+
+    // Store the original number to compare later
+    originalNum = num;
+
+    // Reverse the number
+    while (num != 0) {
+        remainder = num % 10;  // Get the last digit
+        reversedNum = reversedNum * 10 + remainder;  // Add the digit to the reversed number
+        num /= 10;  // Remove the last digit from the original number
+    }
+
+    // Check if the original number is equal to the reversed number
+    if (originalNum == reversedNum) {
+        cout << originalNum << " is a palindrome." << endl;
+    } else {
+        cout << originalNum << " is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
