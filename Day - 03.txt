@@ -1,0 +1,255 @@
+/* 1:-
+
+given number of rows and columns, print them in the following manner: 
+rows: 4
+columns: 5
+*****
+*****
+*****
+*****
+
+*/
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int rows;
+    int columns;
+
+    cin>>rows>>columns;
+
+
+    for(int i =0; i<rows; i++) {
+        for(int j = 0; j<columns; j++) {
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+/*  2:-
+
+given number of rows, print them in the following manner: 
+rows: 5
+*
+**
+***
+****
+*****
+
+*/
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int rows;
+
+    cin>>rows;                      
+
+
+    for(int i =0; i<rows; i++) {    
+        for(int j = 0; j<=i; j++) { 
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+/*  3:-
+
+given number of rows, print them in the following manner: 
+rows: 7
+*******
+******
+*****
+****
+***
+**
+*
+
+*/
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int rows;
+
+    cin>>rows;   5                   
+
+
+    for(int i = 0; i<rows; i++) {    
+        for(int j = 0; j<rows-i; j++) { 
+            cout<<"*";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+/*   4:-
+
+take number of rows as input and print the following pattern. 
+rows = 6    
+     *
+    **
+   ***
+  ****
+ *****
+******
+
+*/
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int rows;
+    cin>>rows;          // 6
+
+    for(int rowNo=0; rowNo<rows; rowNo++) {                     
+        for(int spaceNo=0; spaceNo<rows-rowNo-1; spaceNo++) {   
+            cout<<" ";                                          
+        }
+
+        for(int starNo=0; starNo<=rowNo; starNo++) {            
+            cout<<"*";                                          
+        }
+        cout<<endl;
+    }
+
+
+    return 0;
+}
+
+
+
+
+/* 5:- 
+
+take number of rows as input and print the following pattern. 
+rows = 5   
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+*/
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int rows;
+    cin>>rows;                  
+    for(int row = 0; row<rows; row++) {
+        for(int space = 0; space<rows-row-1; space++) {
+            cout<<" ";
+        }
+
+        for(int star = 0; star<=row; star++) {
+            cout<<"* ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+/* 6:-
+
+take number of rows as input and print the following pattern. 
+rows = 5  
+* * * * *
+ * * * *
+  * * *
+   * *
+    *
+
+*/
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int rows;
+    cin>>rows;                  
+    for(int row = 0; row<rows; row++) {
+        for(int space = 0; space<row; space++) {
+            cout<<" ";
+        }
+
+        for(int star = 0; star<rows-row; star++) {
+            cout<<"* ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+
+
+/*  7:-
+
+ 🔸 Question:
+ Print numbers from 1 to 9 in a 3x3 matrix format without tab spaces:
+ Example output:
+ 1 2 3
+ 4 5 6
+ 7 8 9
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 1;
+
+    for (int i = 0; i < 3; i++) {          // Rows
+        for (int j = 0; j < 3; j++) {      // Columns
+            cout << num << " ";            // Single space for separation
+            num++;
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
+
