@@ -1,0 +1,435 @@
+Standard Template Library In C++ :- 
+
+
+The Standard Template Library or STL in C++ is a collection of template classes and template functions that provide a generic way of programming. It is a library of container classes, algorithms, and iterators.
+
+It is commonly used for efficiently programming data structures, algorithms, and functions. Some built-in data structures include arrays, vectors, queues, etc.
+
+Components of STL in C++
+There are four major components of STL in C++:
+
+1. Containers
+2. Iterators
+3. Algorithms
+4. Function objects or Functors
+
+In this article, we are mainly concerned about the first three components of C++ STL.
+
+
+Vector:-
+
+Vectors are dynamic arrays, allowing the insertion and deletion of data from the end. They can grow or shrink as required. Hence their size is not fixed, unlike arrays.
+
+Syntax:
+
+vector<object_type> vector_name;
+
+
+🔹 Basic Declaration:
+
+#include <vector>
+using namespace std;
+
+vector<int> v;  // Creates an empty vector of integers
+
+
+🔹 Declaration with Initial Size:
+
+vector<int> v(5);  // Creates a vector of size 5 with default value 0
+
+
+🔹 Declaration with Size and Initial Value:
+
+vector<int> v(5, 100);  // {100, 100, 100, 100, 100}
+
+
+
+🔹 Basic Functions:-
+
+Function	     Description	                          Example
+
+v.size()	   Returns number of elements	                 v.size();
+
+v.empty()	   Checks if vector is empty (true/false)	 if(v.empty())
+
+v.clear()	   Removes all elements	                         v.clear();
+
+v.resize(n)	   Resizes vector to n elements	                 v.resize(10);
+
+v.assign(n, val)   Assigns n copies of val	                 v.assign(5, 100);
+
+
+
+🔹 Element Access
+
+Function	            Description	                   Example
+
+v[i] or v.at(i)	            Access element at index i	   v[2], v.at(2)
+
+v.front()	            First element	           v.front();
+
+v.back()	            Last element	           v.back();
+
+v.data()	        Returns pointer to internal array  int* ptr = v.data();
+
+
+
+
+
+🔹 Modifiers
+
+Function	              Description	                      Example
+
+v.push_back(x)	             Adds element x at end	               v.push_back(10);
+
+v.pop_back()	             Removes last element	              v.pop_back();
+
+v.insert(pos, val)	     Inserts val at position pos              v.insert(v.begin() + 1, 99);
+
+v.erase(pos)	             Removes element at pos	              v.erase(v.begin() + 2);
+
+v.erase(start, end)	     Removes elements in range [start, end)	v.erase(v.begin(), v.begin() + 3);
+
+v.swap(v2)	              Swaps contents with v2	                 v.swap(v2);
+
+v.emplace_back(x)	Like push_back but faster (constructs in-place)	  v.emplace_back(100);
+
+
+
+
+
+🔹 Iterators
+
+Function	Description
+
+v.begin()	Iterator to first element
+
+v.end() 	Iterator to past-the-last element
+
+v.rbegin()	Reverse iterator from end
+
+v.rend()	Reverse iterator to front
+
+
+
+Ex:-
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+
+    v.push_back(40);         // Add at end → {10, 20, 30, 40}
+    v.insert(v.begin(), 5);  // Insert 5 at beginning → {5, 10, 20, 30, 40}
+    v.pop_back();            // Remove last element → {5, 10, 20, 30}
+
+    cout << "Size: " << v.size() << endl;
+    cout << "Front: " << v.front() << ", Back: " << v.back() << endl;
+
+    for (int x : v) cout << x << " ";
+}
+
+Output:-
+
+Size: 4
+Front: 5, Back: 30
+5 10 20 30 
+
+
+
+
+Ex:- 02:-
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Declaration & Initialization
+    vector<int> v = {10, 20, 30};
+
+    // Modifiers
+    v.push_back(40);                // {10, 20, 30, 40}
+    v.emplace_back(50);            // {10, 20, 30, 40, 50}
+    v.insert(v.begin(), 5);        // {5, 10, 20, 30, 40, 50}
+    v.erase(v.begin() + 2);        // Remove index 2 → {5, 10, 30, 40, 50}
+    
+    vector<int> v2 = {100, 200};
+    v.swap(v2);                    // Now v = {100, 200}, v2 = {5, 10, 30, 40, 50}
+
+    // Element access
+    cout << "First element (front): " << v.front() << endl;
+    cout << "Last element (back): " << v.back() << endl;
+    cout << "Element at index 1: " << v.at(1) << endl;
+
+    // Inbuilt Functions
+    cout << "Size: " << v.size() << endl;
+    cout << "Is vector empty? " << (v.empty() ? "Yes" : "No") << endl;
+
+    // Access using iterators
+    cout << "\nUsing forward iterator: ";
+    for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
+        cout << *it << " ";
+    }
+
+    cout << "\nUsing reverse iterator: ";
+    for (vector<int>::reverse_iterator rit = v.rbegin(); rit != v.rend(); ++rit) {
+        cout << *rit << " ";
+    }
+
+    // Using data() pointer
+    int* ptr = v.data();
+    cout << "\n\nAccess using data(): ";
+    for (int i = 0; i < v.size(); ++i)
+        cout << *(ptr + i) << " ";
+
+    // Clear vector
+    v.clear();
+    cout << "\n\nAfter clear(), size: " << v.size() << endl;
+
+    return 0;
+}
+
+Output:-
+
+First element (front): 100
+Last element (back): 200
+Element at index 1: 200
+Size: 2
+Is vector empty? No
+
+Using forward iterator: 100 200 
+Using reverse iterator: 200 100 
+
+Access using data(): 100 200 
+
+After clear(), size: 0
+
+
+
+Ex:-
+
+
+✅ 1. Create a vector and print elements
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+    for(int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    return 0;
+}
+
+Output:-
+10 20 30
+
+
+
+✅ 2. Input values from user and print
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v(5);
+    for(int i = 0; i < 5; i++) {
+        cin >> v[i];
+    }
+
+    for(int i = 0; i < 5; i++) {
+        cout << v[i] << " ";
+    }
+    return 0;
+}
+
+output:-
+5 10 15 20 25
+
+
+
+✅ 3. Add and remove elements
+💡 Question: Add values using push_back() and remove one using pop_back().
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v;
+    v.push_back(100);
+    v.push_back(200);
+    v.push_back(300);
+
+    v.pop_back(); // removes 300
+
+    for(int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    return 0;
+}
+
+output:-
+100 200
+
+
+
+✅ 4. Access specific elements
+💡 Question: Access the first, second, and last element of a vector.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {11, 22, 33, 44, 55};
+
+    cout << "First: " << v.front() << endl;
+    cout << "Second: " << v[1] << endl;
+    cout << "Last: " << v.back() << endl;
+    return 0;
+}
+
+Output:-
+First: 11
+Second: 22
+Last: 55
+
+
+✅ 5. Size of a vector
+💡 Question: Find out how many elements are in the vector.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {5, 10, 15};
+
+    cout << "Size of vector: " << v.size();
+    return 0;
+}
+
+output:-
+Size of vector: 3
+
+
+✅ 6. Sort a vector in ascending order
+💡 Question: Sort a vector from small to big using sort().
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>  // for sort()
+using namespace std;
+
+int main() {
+    vector<int> v = {30, 10, 50, 20};
+
+    sort(v.begin(), v.end());
+
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i] << " ";
+    }
+    return 0;
+}
+
+📤 Output:
+10 20 30 50
+
+
+
+✅ 7. Reverse a vector
+💡 Question: Print the vector in reverse using reverse().
+
+#include <iostream>
+#include <vector>
+#include <algorithm>  // for reverse()
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+
+    reverse(v.begin(), v.end());
+
+    for (int x : v) {
+        cout << x << " ";
+    }
+    return 0;
+}
+
+Output:-
+5 4 3 2 1
+
+
+✅ 8. Check if vector is empty
+💡 Question: Check if vector has any elements or not.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v;
+
+    if (v.empty())
+        cout << "Vector is empty";
+    else
+        cout << "Vector has elements";
+
+    return 0;
+}
+
+Output:-
+Vector is empty
+
+
+✅ 9. Clear a vector
+💡 Question: Remove all elements from a vector using clear().
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> v = {10, 20, 30};
+
+    v.clear(); // removes all elements
+
+    cout << "Size after clear: " << v.size();
+    return 0;
+}
+
+Output:-
+Size after clear: 0
+
+
+✅ 10. Find max and min using max_element & min_element
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> v = {12, 45, 23, 67, 34};
+
+    int maxVal = *max_element(v.begin(), v.end());
+    int minVal = *min_element(v.begin(), v.end());
+
+    cout << "Max: " << maxVal << endl;
+    cout << "Min: " << minVal;
+    return 0;
+}
+
+📤 Output:
+
+Max: 67
+Min: 12
