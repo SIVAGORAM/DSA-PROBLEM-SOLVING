@@ -1,0 +1,366 @@
+
+📘 C++ STL – Complete Guide to map
+
+🔰 What is a map?
+
+A map is a container in C++ STL that stores data in key-value pairs, where:
+
+Keys are unique (no duplicates).
+
+Values are associated with each key.
+
+Automatically stored in sorted order of keys.
+
+Internally implemented using a Red-Black Tree (Balanced BST).
+
+📌 Syntax:
+
+#include <map>
+using namespace std;
+
+map<KeyType, ValueType> map_name;
+
+✅ Example:
+
+map<int, string> m;
+Stores: {1: "One"}, {2: "Two"}
+
+
+🔨 Basic Operations:
+
+Operation	        Syntax	                                  Description
+
+Insert	              m[key] = value; OR m.insert({k, v});	Inserts a key-value pair
+
+Access	              m[key]	                                Gets or sets value for key
+
+Size	              m.size();	                                Returns number of key-value pairs
+
+Erase	              m.erase(key);	                        Removes a key and its value
+ 
+Clear	              m.clear();	                        Removes all elements
+
+Count	              m.count(key);	                        Returns 1 if key exists, else 0
+
+Find	              m.find(key);	                        Returns iterator to key
+
+Empty	              m.empty();	                        Checks if map is empty
+
+🧪 Example:
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    map<int, string> m;
+
+    m[1] = "Apple";
+    m[3] = "Banana";
+    m[2] = "Cherry";
+
+    for (auto it : m) {
+        cout << it.first << " -> " << it.second << endl;
+    }
+}
+
+📤 Output:
+
+1 -> Apple  
+2 -> Cherry  
+3 -> Banana
+
+🧠 Properties of map
+
+Property	                 Description
+
+Ordered by key	                Always sorted in ascending order of keys
+
+Unique keys only	        Duplicate keys are not allowed
+
+Logarithmic operations	        Insert, erase, find = O(log n)
+
+Uses Red-Black Tree	        Self-balancing BST
+
+⚔️ find() and erase():
+
+auto it = m.find(2); // returns iterator to key 2
+if (it != m.end()) {
+    cout << it->second; // print value
+}
+
+m.erase(3); // removes key 3
+
+
+
+🛠 Insertion Methods
+
+m.insert({4, "Date"});
+m.insert(make_pair(5, "Elderberry"));
+
+
+
+🔁 Traversing a map
+
+for (auto it = m.begin(); it != m.end(); ++it)
+    cout << it->first << " " << it->second << endl;
+
+OR
+
+for (auto [key, value] : m)
+    cout << key << " " << value << endl;
+
+
+🧱 Important Use Cases
+
+Problem Type	             map Usage
+
+Frequency Count	             m[ch]++ (for counting characters)
+
+Key-Value Data Mapping	     Like roll number → name
+
+Associative Lookups	     Replace if-else/switch
+
+Sorting by Key	             Automatic by default
+
+
+
+🧩 Example Use Case – Frequency Counter
+
+string str = "aabcdd";
+map<char, int> freq;
+
+for (char ch : str)
+    freq[ch]++;
+
+for (auto [k, v] : freq)
+    cout << k << ": " << v << endl;
+
+📤 Output:
+
+a: 2  
+b: 1  
+c: 1  
+d: 2
+
+🚨 Differences: map vs unordered_map
+
+Feature	                   map	                   unordered_map
+
+Ordering	       Sorted by key	           No order
+
+Internal Structure	Red-Black Tree (BST)	   Hash Table
+
+Time Complexity	        O(log n)	           Average O(1), Worst O(n)
+
+Header File	         <map>	                  <unordered_map>
+
+
+
+🔍 Custom Sorting of Keys:-
+
+By default, keys are sorted in ascending order. You can change to descending:
+
+map<int, string, greater<int>> m;
+
+🔄 Nested Map
+
+map<int, map<string, int>> student_scores;
+student_scores[1]["Math"] = 95;
+student_scores[1]["English"] = 88;
+
+
+
+🧾 Final Example
+
+map<string, int> marks;
+marks["Alice"] = 90;
+marks["Bob"] = 85;
+marks["Charlie"] = 95;
+
+for (auto [name, mark] : marks)
+    cout << name << " => " << mark << endl;
+
+
+📤 Output:
+
+Alice => 90  
+Bob => 85  
+Charlie => 95
+Would you like:
+
+
+
+
+The normal for loop and the for loop using auto keyword in C++:-
+
+🔁 What is a for loop?
+A for loop is a control structure used to repeat a block of code a certain number of times.
+
+✅ Normal for loop Syntax:
+
+for (initialization; condition; increment/decrement) {
+    // code to run repeatedly
+}
+
+🧠 Think of a for loop like:
+Imagine you want to drink 5 glasses of water in the morning.
+
+Start at glass 1
+
+Keep drinking until 5
+
+After each glass, move to the next
+
+for (int i = 1; i <= 5; i++) {
+    cout << "Drinking glass " << i << endl;
+}
+
+📤 Output:
+
+Drinking glass 1  
+Drinking glass 2  
+Drinking glass 3  
+Drinking glass 4  
+Drinking glass 5
+This is a normal for loop — we declare a variable i, check a condition, and increase it every time.
+
+
+🧺 Example with Array:
+
+int arr[] = {10, 20, 30, 40, 50};
+
+for (int i = 0; i < 5; i++) {
+    cout << arr[i] << " ";
+}
+
+📤 Output:
+
+10 20 30 40 50
+🧠 Problem with Normal For Loop in STL Containers:
+When you work with STL containers like vector, set, map, etc., indexing doesn't always work, or it's not recommended.
+
+✅ Range-Based For Loop (Modern C++ style):
+This is where we use the auto keyword to simplify the syntax.
+
+🔍 What is auto?
+The auto keyword automatically detects the data type of a variable based on what you assign to it.
+
+🔁 Range-based for loop with auto:
+
+vector<int> v = {10, 20, 30, 40};
+
+for (auto x : v) {
+    cout << x << " ";
+}
+
+📤 Output:
+
+10 20 30 40
+You don't need to write data type (like int, string, etc.)
+
+auto automatically figures out what type x is (in this case, int)
+
+✅ Example with map (key-value pairs):
+
+map<int, string> m;
+m[1] = "Apple";
+m[2] = "Banana";
+
+for (auto p : m) {
+    cout << p.first << " => " << p.second << endl;
+}
+
+📤 Output:
+
+1 => Apple  
+2 => Banana
+p is a pair (key-value)
+
+p.first is the key
+
+p.second is the value
+
+✅ With auto& (reference):
+Use auto& when you want to modify values inside the loop.
+
+vector<int> v = {1, 2, 3};
+
+for (auto& x : v) {
+    x *= 2; // doubles each element
+}
+
+for (auto x : v) {
+    cout << x << " ";
+}
+
+📤 Output:
+
+2 4 6
+
+
+🔃 Summary: Normal for loop vs auto loop
+
+Feature	                         Normal for loop	   Range-based with auto
+
+Works with arrays	           ✅ Yes	              ✅ Yes
+
+Works with vectors	           ✅ Yes(with indexing)      ✅ Easier with auto
+
+Works with map/set	           ❌ (Index not possible)	✅ Best with auto
+
+Requires data type	           ✅ Yes	             ❌ No (type is inferred)
+
+Easy to write/clean	          ❌ Longer	            ✅ Short and clean
+
+✅ Final Example Comparing Both:
+
+vector<int> nums = {5, 10, 15};
+
+// Normal
+for (int i = 0; i < nums.size(); i++)
+    cout << nums[i] << " ";
+
+// Auto
+for (auto num : nums)
+    cout << num << " ";
+
+Both give:
+
+5 10 15
+
+🔚 Conclusion:
+
+Use normal for loop when you need index values or doing custom increments.
+
+Use for(auto x : container) when looping through STL containers like vector, set, map.
+
+auto makes your code simpler and cleaner.
+
+For modification, use auto& (reference).
+
+
+Ex:-
+
+https://www.geeksforgeeks.org/problems/find-the-frequency/1
+
+Code:-
+
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<int> arr = {1, 2, 3, 3, 2, 1}; 
+    int x = 2;                           
+
+    map<int, int> freq;                  
+
+    for (int i = 0; i < arr.size(); i++) {
+        freq[arr[i]]++;                     }
+
+    cout << "Frequency of " << x << " is: " << freq[x] << endl;
+
+    return 0;
+}
