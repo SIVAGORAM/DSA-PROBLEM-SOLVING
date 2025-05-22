@@ -1,0 +1,405 @@
+Understanding C++ Basics with Internal Logic
+
+
+Check whether a number is odd or even:-
+
+- Every integer number is either even or odd.
+
+- A number is even if it is divisible by 2 (i.e., the remainder is 0 when divided by 2).
+
+- A number is odd if it is not divisible by 2 (i.e., the remainder is 1 when divided by 2).
+
+Hint 1: Use the Modulo Operator (%)
+The % operator gives you the remainder.
+
+Ex:- 
+
+10 % 2 = 0   → even  
+11 % 2 = 1   → odd
+
+| Step                | Explanation                                   |
+| ------------------- | --------------------------------------------- |
+| `int num;`          | Declares a variable to store user input.      |
+| `cin >> num;`       | Takes number input from the user.             |
+| `num % 2`           | Checks remainder when number is divided by 2. |
+| `if (num % 2 == 0)` | If remainder is 0 → number is even.           |
+| `else`              | Otherwise, it’s odd.                          |
+
+
+Want to Try This Logic on a Range?:-
+
+for (int i = 1; i <= 10; i++) {
+    if (i % 2 == 0)
+        cout << i << " is even" << endl;
+    else
+        cout << i << " is odd" << endl;
+}
+
+This will print odd/even for numbers from 1 to 10.
+
+
+Given an integer n, print the first n even numbers.
+
+🔍 Concept Behind the Logic:
+Even numbers: Numbers divisible by 2 → 0, 2, 4, 6, 8, 10, ...
+
+Use a loop that runs n times and prints even numbers.
+
+There are two common ways to do it:
+
+Method 1: Generate using 2*i pattern
+This is the simplest and most efficient.
+
+🔑 Hint:
+The i-th even number is 2 * i
+
+Logic:- 01
+for (int i = 1; i <= n; i++) {
+        cout << 2 * i << " ";
+    }
+
+
+Logic:
+
+Loop i from 1 to n.
+
+Multiply each i by 2 → gives the next even number.
+
+This prints: 2 4 6 8 10 if n = 5.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Given a number N, print the first N natural numbers.
+
+ Concept Behind the Logic:
+Natural numbers are: 1, 2, 3, 4, 5, ...
+
+Start from 1 and print up to N.
+
+Use a loop from 1 to N.
+
+
+Hint:
+
+Loop from 1 to N, and print each number.
+
+Logic :-
+
+for (int i = 1; i <= N; i++) {
+        cout << i << " ";
+    }
+
+
+- Creates a loop starting from i = 1 to i <= N.
+
+Internally:
+
+- Step 1: Set i = 1
+
+- Check i <= N → 1 <= 5 → ✅ true → go inside loop.
+
+- After loop body, do i++ → increase i by 1.
+
+- Repeat until i > N → then stop.
+
+
+Cycle Trace:
+
+i = 1 → print 1
+
+i = 2 → print 2
+
+i = 3 → print 3
+
+i = 4 → print 4
+
+i = 5 → print 5
+
+i = 6 → stop (since 6 > 5)
+
+
+| i | Condition `i <= 5` | Output | i++ |
+| - | ------------------ | ------ | --- |
+| 1 | true               | 1      | 2   |
+| 2 | true               | 2      | 3   |
+| 3 | true               | 3      | 4   |
+| 4 | true               | 4      | 5   |
+| 5 | true               | 5      | 6   |
+| 6 | false → stop       |        |     |
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Print all characters of a string one by one:- 
+
+Step 1: How is a string stored in memory?
+
+In C++, a string object (from <string>) internally manages a continuous block of memory (like an array) to store characters.
+
+For example, the string "Hello" is stored as:
+
+H	e	l	l	o	\0 (null terminator internally for C-style)
+
+Each character has an index starting at 0 (H at index 0, e at index 1, etc.).
+
+Step 2: Input reading using getline(cin, str)
+The program reads a line of input from the user.
+
+The characters typed by the user are stored sequentially in this internal block.
+
+The string's .length() function returns the number of characters stored (5 for "Hello").
+
+
+for (int i = 0; i < str.length(); i++) {
+    cout << str[i] << endl;
+}
+
+The variable i starts at 0.
+
+str[i] accesses the character at the memory address of the string plus i offset.
+
+For example:
+
+str[0] → memory location of first character (H)
+
+str[1] → memory location of second character (e), which is one byte ahead
+
+Each character is sent to cout, which sends it to the output device (screen).
+
+Step 4: How cout prints each character
+
+cout receives one character at a time.
+
+It converts the character's ASCII value to a visible symbol.
+
+It then outputs that symbol on the console.
+
+endl flushes the output buffer and moves to the next line.
+
+Step 5: Loop continues
+
+i increments by 1 every iteration.
+
+The process repeats until i == str.length().
+
+When the loop ends, all characters have been printed.
+
+
+Visual Example:
+
+Memory:    | H | e | l | l | o |
+
+Index:       0   1   2   3   4
+
+i = 0 --> print 'H'
+i = 1 --> print 'e'
+i = 2 --> print 'l'
+i = 3 --> print 'l'
+i = 4 --> print 'o'
+i = 5 --> loop ends (since 5 == length)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Problem:
+
+Given a number n, find n! (factorial of n).
+
+What is Factorial?
+Factorial of n (written as n!) is the product of all positive integers from 1 to n.
+
+Example:
+5! = 5 × 4 × 3 × 2 × 1 = 120
+
+By definition:
+0! = 1
+
+Logic:-
+
+ if (n < 0) {
+        cout << "Factorial not defined for negative numbers." << endl;
+        return 0;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        fact = fact * i;  // multiply fact by i in each iteration
+    }
+
+
+Step-by-step logic behind the loop:
+
+| Iteration (i) | Operation      | fact Value |
+| ------------- | -------------- | ---------- |
+| Start         | fact = 1       | 1          |
+| i = 1         | fact = 1 * 1   | 1          |
+| i = 2         | fact = 1 * 2   | 2          |
+| i = 3         | fact = 2 * 3   | 6          |
+| i = 4         | fact = 6 * 4   | 24         |
+| i = 5         | fact = 24 * 5  | 120        |
+
+
+- fact stores the running product.
+
+- Each time the loop runs, it multiplies the current fact by the next number i.
+
+- This continues until i reaches n.
+
+- Finally, fact holds the factorial result.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Check if a number is prime or not :
+
+What is a prime number?
+
+A number greater than 1 that has only two divisors: 1 and itself.
+
+Example: 2, 3, 5, 7, 11, ...
+
+
+Logic to check prime:
+
+- If number <= 1 → NOT prime.
+
+- Check divisibility from 2 to √number:
+
+   - If divisible by any → NOT prime.
+
+   - Else → prime.
+
+Logic:-
+
+ cout << "Enter a Number: ";
+    cin >> num;
+
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            count++;
+        }
+    }
+
+    if (count == 2) {
+        cout << "It is a Prime Number" << endl;
+    } else {
+        cout << "It is Not a Prime Number" << endl;
+    }
+
+    return 0;
+
+
+Visual example:
+For num = 6:
+
+| i | 6 % i | Divides? | count after check |
+| - | ----- | -------- | ----------------- |
+| 1 | 0     | yes      | 1                 |
+| 2 | 0     | yes      | 2                 |
+| 3 | 0     | yes      | 3                 |
+| 4 | 2     | no       | 3                 |
+| 5 | 1     | no       | 3                 |
+| 6 | 0     | yes      | 4                 |
+
+
+- Count = 4 (divisible by 1, 2, 3, 6) → Not prime.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Problem: Find Max and Min in an Array
+
+
+Logic:-
+
+int main() {
+
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    int arr[n];
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int maxNum = arr[0];
+    int minNum = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > maxNum) {
+            maxNum = arr[i];
+        }
+        if (arr[i] < minNum) {
+            minNum = arr[i];
+        }
+    }
+
+    cout << "Maximum number is: " << maxNum << endl;
+    cout << "Minimum number is: " << minNum << endl;
+
+    return 0;
+
+
+- The user enters the size n.
+
+- Then enters n elements.
+
+- These are stored in continuous memory locations — arr[0], arr[1], ..., arr[n-1].
+
+- Initialize maxNum and minNum
+
+- Both are set initially to the first element arr[0].
+
+- This is our starting reference for max and min.
+
+- Loop through the array from i = 1 to n-1
+
+   - For each element arr[i]:
+
+        - Compare arr[i] with maxNum.
+
+            - If arr[i] is greater, update maxNum to arr[i].
+
+        - Compare arr[i] with minNum.
+
+             - If arr[i] is smaller, update minNum to arr[i].
+
+     - After loop finishes
+          
+           - maxNum holds the largest value found in the array.
+
+           - minNum holds the smallest value found in the array.
+
+
+Example:
+
+For array: [5, 3, 9, 1, 6]
+
+| i | arr\[i] | maxNum | minNum |
+| - | ------- | ------ | ------ |
+| 0 | 5       | 5      | 5      |
+| 1 | 3       | 5      | 3      |
+| 2 | 9       | 9      | 3      |
+| 3 | 1       | 9      | 1      |
+| 4 | 6       | 9      | 1      |
+
+
+
+Visualization:
+
+Array: [5, 3, 9, 1, 6]
+
+maxNum = 5    minNum = 5   ← Initial assignment from arr[0]
+
+Check 3: 3 < 5 → minNum = 3
+Check 9: 9 > 5 → maxNum = 9
+Check 1: 1 < 3 → minNum = 1
+Check 6: No update
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
