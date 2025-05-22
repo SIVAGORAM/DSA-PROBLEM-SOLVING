@@ -306,7 +306,7 @@ For num = 6:
 
 - Count = 4 (divisible by 1, 2, 3, 6) → Not prime.
 
-Printing N -  Natural Number's :-
+Printing N -  Prime Number's :-
 
 Logic:-
 
