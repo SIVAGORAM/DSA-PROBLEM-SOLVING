@@ -1,0 +1,239 @@
+1. Write a C++ program that takes an integer input N from the user and prints all the numbers between 1 and N (inclusive) that are divisible by 7.
+
+CODE:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int limit;
+    cout << "Enter the limit: ";
+    cin >> limit;
+
+    cout << "Numbers divisible by 7 up to " << limit << " are:" << endl;
+    for (int i = 1; i <= limit; i++) {
+        if (i % 7 == 0) {
+            cout << i << " ";
+        }
+    }
+
+    cout << endl;
+    return 0;
+}
+
+
+Output:-
+
+Enter the limit: 50
+Numbers divisible by 7 up to 50 are:
+7 14 21 28 35 42 49
+
+
+
+2.Question:
+Write a C++ program that takes an integer input N from the user and prints all the factors of N. A factor is a number that divides N without leaving a remainder.
+
+CODE:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    cout << "Factors of " << num << " are: ";
+    for (int i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            cout << i << " ";
+        }
+    }
+
+    cout << endl;
+    return 0;
+}
+
+Output:-
+Enter a number: 12
+Factors of 12 are: 1 2 3 4 6 12
+
+
+
+3. Program: Print Prime Numbers up to n
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    // Loop through each number from 2 to n
+    for (int i = 2; i <= n; i++) {
+        int count = 0;
+
+        // Count the number of divisors for i
+        for (int j = 1; j <= i; j++) {
+            if (i % j == 0) {
+                count++;
+            }
+        }
+
+        // A prime number has exactly 2 divisors: 1 and itself
+        if (count == 2) {
+            cout << i << " ";
+        }
+    }
+
+    cout << endl;
+    return 0;
+}
+
+Output:-
+Enter a number: 10
+2 3 5 7
+
+
+4. Program: Sum of Digits of a Number
+
+Code:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num, sum = 0;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    // Repeat until number becomes 0
+    while (num > 0) {
+        int digit = num % 10; // Get last digit
+        sum = sum + digit;    // Add it to sum
+        num = num / 10;       // Remove the last digit
+    }
+
+    cout << "Sum of digits = " << sum << endl;
+
+    return 0;
+}
+
+Output:-
+Enter a number: 123
+Sum of digits = 6
+
+
+5:-Program: Multiplication Table
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    cout << "Multiplication Table of " << num << ":" << endl;
+
+    for (int i = 1; i <= 10; i++) {
+        cout << num << " x " << i << " = " << num * i << endl;
+    }
+
+    return 0;
+}
+
+Output:-
+Enter a number: 5
+Multiplication Table of 5:
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+...
+5 x 10 = 50
+
+
+
+6:- Write a C++ program that takes two strings as input, concatenates them, and then prints the characters at Even positions of the concatenated string.
+
+Code:-
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str1, str2, result;
+
+    cout << "Enter first string: ";
+    cin >> str1;
+
+    cout << "Enter second string: ";
+    cin >> str2;
+
+    result = str1 + str2;
+
+    cout << "Characters at even positions: ";
+    for (int i = 0; i < result.length(); i++) {
+        if (i % 2 == 1) {
+            cout << result[i];
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
+
+Output:-
+
+Enter first string: abc
+Enter second string: def
+Characters at odd positions: bdf
+
+
+7.Write a C++ program that takes an integer input n from the user and prints the first n natural numbers.
+
+Code:-
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter the value of n: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        cout << i << " ";
+    }
+
+    cout << endl;
+    return 0;
+}
+
+Output:-
+Enter the value of n: 5
+1 2 3 4 5 
+
+
+8. Write a C++ program to calculate the sum of the first n natural numbers entered by the user.
+
+Code:-
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, sum = 0;
+    cout << "Enter the value of n: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    cout << "Sum of first " << n << " natural numbers = " << sum << endl;
+    return 0;
+}
+
+Output:-
+
+Enter the value of n: 5
+Sum of first 5 natural numbers = 15
+
